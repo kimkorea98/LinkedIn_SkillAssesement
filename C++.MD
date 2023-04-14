@@ -233,6 +233,8 @@ int main(){
        `x = 10 and y = 19`
 
 #### Q16. What is the meaning of the two parts specified between parentheses in a range-based for loop, separated by a colon?
+//  for ( init-statement ﻿(optional) range-declaration : range-expression ) loop-statement
+
 
 - [x] The first is a variable declaration that will hold an element in a sequence. The second is the sequence to traverse.
 - [ ] The first is an iterator, and the second is the increment value to be added to the iterator.
@@ -540,7 +542,7 @@ public class Dog extends Animal {
 using namespace std;
 
 int main(){
-    char c = 255;
+    char c = 255; //basically represent -128~127 so char c = 255 == -1
     if(c>10)
         printf("c = %i, which is greater than 10", c);
     else
@@ -665,6 +667,8 @@ loop:
 - [ ] It informs the linker that some functions or data used in the source file main.cpp are contained in library.h, so that they can be called in run time. This is also known as dynamic linking.
 - [x] It causes the replacement of the `#include` directive by the entire contents of the source file library.h. This is similar to a Copy-Paste operation of library.h into main.cpp.
 
+// source code file is compiled to object file, and linker connect the object file and make execute file
+
 #### Q39. Consider this function declaration of `is_even`, which takes in an integer and returns true if the argument is an even number and false otherwise. Which declarations are correct for overloaded versions of that function to support floating point numbers and string representations of numbers?
 
 ```cpp
@@ -701,6 +705,7 @@ char *is_even(char *str);
 
 #### Q40. Which choice is an include guard for the header file `my_library.h`?
 
+// problem for preprocessor and header guard
 - [ ] A
 
 ```cpp
@@ -768,6 +773,8 @@ sprite->x
 - [x] `(*sprite).x`
 - [ ] `*sprite.x`
 
+// operator priority
+
 #### Q43. Consider a class named `complexNumber`. Which code will result in an equivalent object?
 
 ```cpp
@@ -775,7 +782,7 @@ complexNumber(float real, float im)
 : real_part(real),
  im_part(im){}
 ```
-
+// this way is more faster, cause doesn call the unessasory stack
 - [ ] A
 
 ```cpp
@@ -817,6 +824,7 @@ complexNumber(float real, float im) {
 ```cpp
 bool x=true, y=false;
 
+// ~ is bit operator so 0000 0001 - became 1111 1110 so ~x is -2, ! is logical operator
 if (~x || y) {
     /*part A*/
 } else {
@@ -835,7 +843,7 @@ if (~x || y) {
 int32_t nums[3]={2,4,3};
 std::cout << ( nums[0] << nums[1] << nums[2] );
 ```
-
+// '>>' is bit operator 0000 0010 << 4 << 3 so, 1 0000 0000  the answer is 2^8 = 256
 - [ ] The output is the addresses of `nums[0]`, `nums[1]`, and `nums[2]`, in that order, with no spaces.
 - [x] 256
 - [ ] `0`
@@ -1000,7 +1008,7 @@ A->B->C->D
 
 ```cpp
 auto buff = new char[50];
-std::memset(buff,20,50);
+std::memset(buff,20,50); // start pointer, set value, range bite. if problem variable is 'int' memset range would changed
 ```
 
 - [ ] It declares a memory buffer named buff that starts at address 20 and ends at address 70.
@@ -1064,6 +1072,11 @@ std::sort(my_array.begin(), my_array.end(), &lambda);
 [Reference](https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=msvc-160)
 
 #### Q60. Which choice is the most reasonable implementation of the function std::mutex::lock() by using std::mutex::try_lock()?
+// multi processing, 
+// by using context switching, we can use various application at the sample time(actually, looks like...)
+// by using SMT(Simultaneous Multithreading) make several locial processor in physical processor (if you make 12 CORE in the 6 CPU by using SMT )
+    
+
 
 - [x] A
 
